@@ -15,7 +15,7 @@ export const RootLayout = ({
     <html lang="en">
       <body>
         <Header />
-        <main className="p-4">{children}</main>
+        <main className="p-4 max-w-300 mx-auto">{children}</main>
       </body>
     </html>
   )

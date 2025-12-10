@@ -12,7 +12,7 @@ interface MenuItemProps {
 export const MenuItem = ({ item }: MenuItemProps) => {
   if (item.path) {
     return (
-      <li>
+      <li className="hover:text-amber-300">
         <Link href={item.path}>{item.title}</Link>
       </li>
     )
