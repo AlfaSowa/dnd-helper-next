@@ -6,7 +6,7 @@ export const CharactersPage = () => {
     <Section>
       <div className="grid grid-cols-5 gap-6">
         {сharacters.map((сharacter) => (
-          <Card link={`/rooms/${сharacter}`} key={сharacter}>
+          <Card link={`/characters/${сharacter}`} key={сharacter}>
             {сharacter}
           </Card>
         ))}

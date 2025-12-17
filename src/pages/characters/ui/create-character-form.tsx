@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/shared/ui'
 import { Form, FormControls } from '@/widgets/form'
 import { useForm } from '@/widgets/form/hooks/use-form'

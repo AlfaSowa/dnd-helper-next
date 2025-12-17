@@ -10,13 +10,19 @@ export interface IRouteConfig {
 }
 
 export const AppRoutes = {
-  root: { path: '/' },
+  root: {
+    path: '/'
+  },
   characters: {
     path: '/characters',
     label: 'Персонажи',
     create: {
       path: '/characters/create',
       getPath: () => '/characters/create'
+    },
+    details: {
+      path: '/characters/:id',
+      getPath: (id: string) => `/characters/${id}`
     }
   },
   rooms: {
@@ -25,6 +31,10 @@ export const AppRoutes = {
     create: {
       path: '/rooms/create',
       getPath: () => '/rooms/create'
+    },
+    details: {
+      path: '/rooms/:id',
+      getPath: (id: string) => `/rooms/${id}`
     }
   }
 }

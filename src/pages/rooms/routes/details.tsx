@@ -1,4 +1,8 @@
-export const RoomPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+export const RoomPage = async ({
+  params
+}: {
+  params: Promise<{ id: string }>
+}) => {
   const { id } = await params
 
   console.log('params', id)

@@ -13,7 +13,7 @@ export const Section = ({ children, title, RightContent }: SectionProps) => {
     <div className="flex flex-col gap-4 ">
       {(title || RightContent) && (
         <div className="flex items-center">
-          {title && <h3>{title}</h3>}
+          {title && <h3 className="font-medium text-xl">{title}</h3>}
           {RightContent && <div className="ml-auto">{RightContent}</div>}
         </div>
       )}

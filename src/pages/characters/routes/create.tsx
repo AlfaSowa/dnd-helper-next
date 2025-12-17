@@ -1,5 +1,3 @@
-'use client'
-
 import { CreateCharacterForm } from '../ui'
 
 export const CharactersCreatePage = () => {
