@@ -1,6 +1,6 @@
 import { Card, Section } from '@/shared/ui'
 
-export const CharactersPage = () => {
+export const Page = () => {
   const сharacters = ['1', '2', '3', '4', '5', '6']
   return (
     <Section>

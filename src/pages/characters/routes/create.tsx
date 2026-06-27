@@ -1,6 +1,6 @@
 import { CreateCharacterForm } from '../ui'
 
-export const CharactersCreatePage = () => {
+export const CreatePage = () => {
   return (
     <div>
       <CreateCharacterForm />

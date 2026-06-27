@@ -1,1 +1,1 @@
-export { CharacterDetailsPage as default } from '@/pages/characters'
+export { DetailsPage as default } from '@/pages/characters'

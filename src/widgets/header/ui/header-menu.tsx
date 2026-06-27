@@ -4,16 +4,19 @@ import { MenuItem } from '@/shared/ui'
 export const HeaderMenu = () => {
   const menu = [
     {
-      title: 'Главная',
-      path: AppRoutes.root.path
+      title: 'Герои',
+      path: AppRoutes.heroes.path,
+      hint: 'Все о создании героев в мире Эфериса'
     },
     {
-      title: 'Готовые персонажы',
-      path: AppRoutes.characters.path
+      title: 'Мир',
+      path: AppRoutes.world.path,
+      hint: 'Все о мире Эфериса'
     },
     {
-      title: 'Комнаты',
-      path: AppRoutes.rooms.path
+      title: 'Бестиарий',
+      path: AppRoutes.bestiary.path,
+      hint: 'Монстры Эфериса'
     }
   ]
 

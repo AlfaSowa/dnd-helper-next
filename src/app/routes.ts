@@ -25,16 +25,32 @@ export const AppRoutes = {
       getPath: (id: string) => `/characters/${id}`
     }
   },
-  rooms: {
-    path: '/rooms',
-    label: 'Комнаты',
-    create: {
-      path: '/rooms/create',
-      getPath: () => '/rooms/create'
+  heroes: {
+    path: '/heroes',
+    label: 'Герои',
+    classes: {
+      path: '/heroes/classes'
     },
+    backgrounds: {
+      path: '/heroes/backgrounds'
+    },
+    species: {
+      path: '/heroes/species'
+    }
+  },
+  world: {
+    path: '/world',
+    label: 'Мир',
+    regions: {
+      path: '/world/regions'
+    }
+  },
+  bestiary: {
+    path: '/bestiary',
+    label: 'Монстры',
     details: {
-      path: '/rooms/:id',
-      getPath: (id: string) => `/rooms/${id}`
+      path: '/bestiary/:id',
+      getPath: (id: string) => `/bestiary/${id}`
     }
   }
 }
