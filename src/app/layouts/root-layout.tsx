@@ -1,5 +1,6 @@
 import { Header } from '@/widgets/header'
 import type { Metadata } from 'next'
+import StoreProvider from '../providers/store-provider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,8 +15,10 @@ export const RootLayout = ({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main className="p-4 mx-auto">{children}</main>
+        <StoreProvider>
+          <Header />
+          <main className="p-4 mx-auto">{children}</main>
+        </StoreProvider>
       </body>
     </html>
   )
