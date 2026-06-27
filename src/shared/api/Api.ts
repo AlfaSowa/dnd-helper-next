@@ -15,6 +15,20 @@ export interface CreateClassDto {
   subclassesIds: string[];
 }
 
+export interface Class {
+  uuid: string;
+  /** @example "паладин, войн" */
+  name: string;
+  subclasses: Subclass[];
+}
+
+export interface Subclass {
+  uuid: string;
+  /** @example "подкласс паладина 1, подкласс паладина 2" */
+  name: string;
+  class: Class;
+}
+
 export interface UpdateClassDto {
   name?: string;
   subclassesIds?: string[];

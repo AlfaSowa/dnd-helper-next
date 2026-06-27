@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "api-gen": "npx swagger-typescript-api generate -p http://localhost:5000/api/v1/json -o ./src/shared/api --no-client"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",

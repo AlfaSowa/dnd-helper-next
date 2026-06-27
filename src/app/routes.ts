@@ -13,6 +13,10 @@ export const AppRoutes = {
   root: {
     path: '/'
   },
+  admin: {
+    path: '/admin',
+    label: 'Админ панель'
+  },
   characters: {
     path: '/characters',
     label: 'Персонажи',
