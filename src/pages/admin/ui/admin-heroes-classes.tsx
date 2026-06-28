@@ -13,6 +13,7 @@ import {
 import { Button, Section } from '@/shared/ui'
 import { Form, FormControls } from '@/widgets/form'
 import { useForm } from '@/widgets/form/hooks'
+import { useMemo } from 'react'
 import {
   heroesClassCreateFormConfig,
   heroesSubclassCreateFormConfig
@@ -36,8 +37,17 @@ export const AdminHeroesClasses = () => {
     }
   }
 
+  const subclassesOptions = useMemo(() => {
+    return (subclasses || []).map((i) => {
+      return {
+        name: i.name,
+        value: i.uuid
+      }
+    })
+  }, [subclasses])
+
   const classForm = useForm<object>({
-    config: heroesClassCreateFormConfig()
+    config: heroesClassCreateFormConfig(subclassesOptions)
   })
   const subclassForm = useForm<object>({
     config: heroesSubclassCreateFormConfig()

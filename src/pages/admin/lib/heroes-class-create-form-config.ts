@@ -1,10 +1,13 @@
-import { type FormConfig } from '@/widgets/form'
+import { OptionItem, type FormConfig } from '@/widgets/form'
 
 interface HeroesClassCreateType {
   name: string
+  subclassesIds: string[]
 }
 
-export const heroesClassCreateFormConfig = (): FormConfig => ({
+export const heroesClassCreateFormConfig = (
+  subclassesOptions: OptionItem[]
+): FormConfig => ({
   id: 'heroes-class-create-form-config',
   controls: [
     {
@@ -15,6 +18,19 @@ export const heroesClassCreateFormConfig = (): FormConfig => ({
       write: { path: 'name' },
       props: {
         placeholder: 'Напишите название класса'
+      }
+    },
+    {
+      id: 'subclassesIds',
+      label: 'Подклассы',
+      type: 'select',
+      read: (ctx: HeroesClassCreateType) => ctx?.subclassesIds || '',
+      write: { path: 'subclassesIds' },
+      props: {
+        placeholder: 'Добавь подклассы'
+      },
+      options: {
+        source: subclassesOptions
       }
     }
   ]
