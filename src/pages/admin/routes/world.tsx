@@ -1,9 +1,9 @@
 import { Section } from '@/shared/ui'
 
-export const Page = () => {
+export const AdminWorldPage = () => {
   return (
     <Section>
-      <div>123123</div>
+      <div>world</div>
     </Section>
   )
 }

@@ -6,6 +6,7 @@ export type BuiltinTypes =
   | 'checkbox'
   | 'textfield'
   | 'multyselect'
+  | 'markdown'
 
 export type ValueReader<TCtx> = (
   ctx: TCtx

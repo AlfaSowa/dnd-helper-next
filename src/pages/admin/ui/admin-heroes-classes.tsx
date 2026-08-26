@@ -139,6 +139,7 @@ export const AdminHeroesClasses = () => {
       <Button onClick={() => setOpenCreateClassModal(true)}>
         Добавить класс
       </Button>
+
       <Button onClick={() => setOpenCreateSubClassModal(true)}>
         Добавить подкласс
       </Button>

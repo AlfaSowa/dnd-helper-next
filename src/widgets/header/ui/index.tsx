@@ -7,6 +7,9 @@ export const Header = () => {
     <header className="flex gap-8 bg-amber-700 p-4 sticky top-0">
       <Link href={AppRoutes.root.path}>DND-HELPER</Link>
       <HeaderMenu />
+      <div className="ml-auto">
+        <Link href={AppRoutes.admin.path}>ADMIN</Link>
+      </div>
     </header>
   )
 }

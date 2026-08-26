@@ -3,6 +3,7 @@ import { type FormConfig } from '@/widgets/form'
 interface HeroesSubclassCreateType {
   name: string
   markdown: string
+  description: string
 }
 
 export const heroesSubclassCreateFormConfig = (): FormConfig => ({
@@ -19,9 +20,19 @@ export const heroesSubclassCreateFormConfig = (): FormConfig => ({
       }
     },
     {
+      id: 'description',
+      label: 'Описание',
+      type: 'text',
+      read: (ctx: HeroesSubclassCreateType) => ctx?.description || '',
+      write: { path: 'description' },
+      props: {
+        placeholder: 'Напишите название класса'
+      }
+    },
+    {
       id: 'markdown',
       label: 'Маркдовн описание',
-      type: 'textfield',
+      type: 'markdown',
       read: (ctx: HeroesSubclassCreateType) => ctx?.markdown || '',
       write: { path: 'markdown' },
       props: {

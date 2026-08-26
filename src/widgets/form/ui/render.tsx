@@ -1,5 +1,6 @@
 import { Select, Textfield } from '@/shared/ui'
 import { Input } from '@/shared/ui/input'
+import MDEditor from '@uiw/react-md-editor'
 import { ReactNode } from 'react'
 import { OptionItem } from '../model'
 
@@ -12,6 +13,7 @@ type FxType = {
 
 export type FormControlsRenderType = {
   text: (props: FxType) => ReactNode
+  markdown: (props: FxType) => ReactNode
   textfield: (props: FxType) => ReactNode
   number: (props: FxType) => ReactNode
   checkbox: (props: FxType) => ReactNode
@@ -26,6 +28,9 @@ export const FormControlsRender: FormControlsRenderType = {
       value={value ?? ''}
       onChange={(e) => onChange?.(e.target.value)}
     />
+  ),
+  markdown: ({ onChange, value }) => (
+    <MDEditor value={value} onChange={(value) => onChange?.(value || '')} />
   ),
   textfield: ({ onChange, value }) => (
     <Textfield

@@ -27,6 +27,7 @@ export interface Subclass {
   /** @example "подкласс паладина 1, подкласс паладина 2" */
   name: string;
   markdown: string;
+  description: string;
   class: Class;
 }
 
@@ -38,9 +39,11 @@ export interface UpdateClassDto {
 export interface CreateSubclassDto {
   name: string;
   markdown: string;
+  description: string;
 }
 
 export interface UpdateSubclassDto {
   name?: string;
   markdown?: string;
+  description?: string;
 }

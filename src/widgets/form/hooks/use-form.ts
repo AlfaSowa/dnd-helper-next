@@ -2,7 +2,10 @@ import { useCallback, useReducer } from 'react'
 import { FormConfig } from '../model'
 import { formReducer, FormState, initialState } from '../model/reducer'
 
-type OnChangeFormType = (id: string, value: string | number | boolean) => void
+type OnChangeFormType = (
+  id: string,
+  value: string | number | boolean | string[]
+) => void
 
 interface UseFormProps<T> {
   config: FormConfig
@@ -12,7 +15,7 @@ interface UseFormProps<T> {
 export type UseFormReturn<T> = {
   config: FormConfig
   defaultData?: T
-  onChange?: (id: string, value: string | number | boolean) => void
+  onChange?: (id: string, value: string | number | boolean | string[]) => void
   state: FormState
   submit: (handler: (data: T) => void) => Promise<void>
 }
