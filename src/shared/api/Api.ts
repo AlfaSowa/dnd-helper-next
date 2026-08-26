@@ -47,3 +47,15 @@ export interface UpdateSubclassDto {
   markdown?: string;
   description?: string;
 }
+
+export interface CreateRegionDto {
+  name: string;
+  markdown: string;
+  description: string;
+}
+
+export interface UpdateRegionDto {
+  name?: string;
+  markdown?: string;
+  description?: string;
+}

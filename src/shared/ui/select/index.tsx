@@ -1,19 +1,21 @@
 'use client'
 
 import { OptionItem } from '@/widgets/form'
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Dropdown } from '../dropdown'
 import { Input } from '../input'
 
 export interface SelectProps {
   options: OptionItem[]
-  onChange: (v: OptionItem) => void
-  value: string | number
+  onChange: (v: string | number | string[]) => void
+  value: string | number | string[]
+  multy?: boolean
 }
 
-export const Select = ({ options, onChange, value }: SelectProps) => {
+export const Select = ({ options, onChange, value, multy }: SelectProps) => {
   const anchorElRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
+  const [selectedItems, setSelectedItems] = useState<string[]>([])
 
   const handleClick = () => {
     setIsOpen((prev) => !prev)
@@ -24,9 +26,41 @@ export const Select = ({ options, onChange, value }: SelectProps) => {
   }
 
   const handleChange = (option: OptionItem) => {
-    onChange(option)
-    setIsOpen(false)
+    if (!multy) {
+      onChange(option.value)
+      setIsOpen(false)
+      return
+    }
+
+    if (multy) {
+      const rawSeletedItems = selectedItems.includes(option.value)
+        ? selectedItems.filter((value) => value !== option.value)
+        : [...selectedItems, option.value]
+
+      const rawOptions = options
+        .filter((option) => rawSeletedItems.includes(option.value))
+        .reduce((acc, cur) => {
+          acc.push(cur.value)
+          return acc
+        }, [])
+
+      onChange(rawOptions as string[])
+
+      setSelectedItems(rawSeletedItems)
+    }
   }
+
+  const inputValue = useMemo(() => {
+    if (multy) {
+      return options
+        .filter((option) => selectedItems.includes(option.value))
+        .reduce((acc, cur) => {
+          acc.push(cur.name)
+          return acc
+        }, [])
+    }
+    return options.find((option) => option.value === value)?.name ?? ''
+  }, [multy, options, selectedItems, value])
 
   return (
     <>
@@ -34,8 +68,9 @@ export const Select = ({ options, onChange, value }: SelectProps) => {
         <Input
           className="w-full"
           onClick={handleClick}
-          value={options?.find((opt) => opt.value === value)?.name || ''}
+          value={inputValue}
           readOnly
+          multiple
         />
       </div>
 

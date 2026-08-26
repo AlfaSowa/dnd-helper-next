@@ -28,6 +28,9 @@ export const heroesClassCreateFormConfig = (
       write: { path: 'subclassesIds' },
       props: {
         placeholder: 'Напишите название подкласса'
+      },
+      options: {
+        source: subclassesOptions
       }
     }
   ]

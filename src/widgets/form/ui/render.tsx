@@ -51,17 +51,14 @@ export const FormControlsRender: FormControlsRenderType = {
     </div>
   ),
   select: ({ onChange, value, options }) => (
+    <Select value={value} onChange={(v) => onChange?.(v)} options={options} />
+  ),
+  multyselect: ({ onChange, value, options }) => (
     <Select
       value={value}
-      onChange={(v) => onChange?.(v.value)}
+      onChange={(v) => onChange?.(v)}
       options={options}
-    />
-  ),
-  multyselect: ({ onChange, value }) => (
-    <Input
-      type="text"
-      value={value ?? ''}
-      onChange={(e) => onChange?.([e.target.value])}
+      multy
     />
   )
 }

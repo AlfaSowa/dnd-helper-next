@@ -22,7 +22,7 @@ export const heroesSubclassCreateFormConfig = (): FormConfig => ({
     {
       id: 'description',
       label: 'Описание',
-      type: 'text',
+      type: 'textfield',
       read: (ctx: HeroesSubclassCreateType) => ctx?.description || '',
       write: { path: 'description' },
       props: {

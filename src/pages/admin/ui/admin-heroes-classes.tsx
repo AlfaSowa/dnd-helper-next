@@ -15,7 +15,6 @@ import { Button, Modal, Section } from '@/shared/ui'
 import { Form, FormControls } from '@/widgets/form'
 import { useForm } from '@/widgets/form/hooks'
 import { useMemo, useState } from 'react'
-import Markdown from 'react-markdown'
 import {
   heroesClassCreateFormConfig,
   heroesSubclassCreateFormConfig
@@ -113,36 +112,16 @@ export const AdminHeroesClasses = () => {
           </div>
         </Section>
 
-        <Section>
-          <div className="flex flex-col gap-2">
-            {subclasses?.map((s) => (
-              <div key={s.uuid}>
-                <div className="flex gap-4">
-                  <div>{s.uuid}</div>
-                  <div>{s.name}</div>
-                  <div className="ml-auto">
-                    <Button onClick={() => handleDelete(s.uuid, 'subclass')}>
-                      удалить
-                    </Button>
-                  </div>
-                </div>
+        <div className="flex gap-2">
+          <Button onClick={() => setOpenCreateClassModal(true)}>
+            Добавить класс
+          </Button>
 
-                <div>
-                  <Markdown>{s.markdown}</Markdown>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
+          <Button onClick={() => setOpenCreateSubClassModal(true)}>
+            Добавить подкласс
+          </Button>
+        </div>
       </div>
-
-      <Button onClick={() => setOpenCreateClassModal(true)}>
-        Добавить класс
-      </Button>
-
-      <Button onClick={() => setOpenCreateSubClassModal(true)}>
-        Добавить подкласс
-      </Button>
 
       <Modal
         open={openCreateClassModal}
