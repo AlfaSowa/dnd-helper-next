@@ -1,16 +1,13 @@
 'use client'
 
+import { OptionItem } from '@/widgets/form'
 import { useRef, useState } from 'react'
 import { Dropdown } from '../dropdown'
 import { Input } from '../input'
 
-type Option = {
-  value: string
-  name: string
-}
 export interface SelectProps {
-  options: Option[]
-  onChange: (v: Option) => void
+  options: OptionItem[]
+  onChange: (v: OptionItem) => void
   value: string | number
 }
 
@@ -26,9 +23,7 @@ export const Select = ({ options, onChange, value }: SelectProps) => {
     setIsOpen(false)
   }
 
-  const handleChange = (option: Option) => {
-    console.log(option)
-
+  const handleChange = (option: OptionItem) => {
     onChange(option)
     setIsOpen(false)
   }
@@ -39,13 +34,13 @@ export const Select = ({ options, onChange, value }: SelectProps) => {
         <Input
           className="w-full"
           onClick={handleClick}
-          value={options.find((opt) => opt.value === value)?.name || ''}
+          value={options?.find((opt) => opt.value === value)?.name || ''}
           readOnly
         />
       </div>
 
       <Dropdown onClose={handleClose} isOpen={isOpen} anchorEl={anchorElRef}>
-        {options.map((opt) => (
+        {options?.map((opt) => (
           <div
             className="cursor-pointer hover:bg-amber-500"
             onClick={() => handleChange(opt)}

@@ -36,7 +36,11 @@ function Field<T>({ form, control }: FieldProps<T>) {
     <label className="flex flex-col gap-1 text-sm">
       {control.label && <span>{control.label}</span>}
 
-      <Render onChange={(v) => onChange?.(control.id, v)} value={value} />
+      <Render
+        onChange={(v) => onChange?.(control.id, v)}
+        value={value}
+        options={control?.options?.source || []}
+      />
     </label>
   )
 }

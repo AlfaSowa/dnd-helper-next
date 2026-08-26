@@ -14,7 +14,7 @@ import { CreateClassDto, CreateSubclassDto } from '@/shared/api/Api'
 import { Button, Modal, Section } from '@/shared/ui'
 import { Form, FormControls } from '@/widgets/form'
 import { useForm } from '@/widgets/form/hooks'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import Markdown from 'react-markdown'
 import {
   heroesClassCreateFormConfig,
@@ -42,8 +42,17 @@ export const AdminHeroesClasses = () => {
     }
   }
 
+  const subclassesOptions = useMemo(() => {
+    return (subclasses || []).map((i) => {
+      return {
+        name: i.name,
+        value: i.uuid
+      }
+    })
+  }, [subclasses])
+
   const classForm = useForm<CreateClassDto>({
-    config: heroesClassCreateFormConfig()
+    config: heroesClassCreateFormConfig(subclassesOptions)
   })
   const subclassForm = useForm<CreateSubclassDto>({
     config: heroesSubclassCreateFormConfig()

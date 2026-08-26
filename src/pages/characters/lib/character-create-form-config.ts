@@ -49,6 +49,9 @@ export const characterCreateFormConfig = (): FormConfig => ({
       write: { path: 'class' },
       props: {
         placeholder: 'Выберите класс'
+      },
+      options: {
+        source: []
       }
     },
     {

@@ -7,16 +7,15 @@ export type BuiltinTypes =
   | 'textfield'
   | 'multyselect'
 
-export type ValueReader<TCtx> = (ctx: TCtx) => string | number | boolean
+export type ValueReader<TCtx> = (
+  ctx: TCtx
+) => string | number | boolean | string[]
 
 export type ValueWriter<TCtx> =
   | { path: string; transform?: (v: any, ctx: TCtx) => any }
   | ((next: any, ctx: TCtx) => TCtx)
 
 export type OptionItem = Record<string, any>
-export type OptionsSource<TCtx = any> =
-  | OptionItem[]
-  | ((ctx: TCtx) => Promise<OptionItem[]> | OptionItem[])
 
 export type FieldConfig<TCtx = any> = {
   id: string
@@ -25,7 +24,7 @@ export type FieldConfig<TCtx = any> = {
   read: ValueReader<TCtx>
   write?: ValueWriter<TCtx>
   options?: {
-    source: OptionsSource<TCtx>
+    source: OptionItem[]
   }
   props?: Record<string, any>
 }

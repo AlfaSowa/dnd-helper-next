@@ -1,11 +1,13 @@
 import { Select, Textfield } from '@/shared/ui'
 import { Input } from '@/shared/ui/input'
 import { ReactNode } from 'react'
+import { OptionItem } from '../model'
 
 type FxType = {
   onChange?: (v: string | number | boolean | string[]) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any
+  options: OptionItem[]
 }
 
 export type FormControlsRenderType = {
@@ -43,16 +45,11 @@ export const FormControlsRender: FormControlsRenderType = {
       <div>checkbox</div>
     </div>
   ),
-  select: ({ onChange, value }) => (
+  select: ({ onChange, value, options }) => (
     <Select
       value={value}
       onChange={(v) => onChange?.(v.value)}
-      options={[
-        { name: '1111', value: '1' },
-        { name: '2222', value: '2' },
-        { name: '3333', value: '3' },
-        { name: '444', value: '4' }
-      ]}
+      options={options}
     />
   ),
   multyselect: ({ onChange, value }) => (

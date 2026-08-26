@@ -1,11 +1,13 @@
-import { type FormConfig } from '@/widgets/form'
+import { OptionItem, type FormConfig } from '@/widgets/form'
 
 interface HeroesClassCreateType {
   name: string
-  subclassesIds: string
+  subclassesIds: string[]
 }
 
-export const heroesClassCreateFormConfig = (): FormConfig => ({
+export const heroesClassCreateFormConfig = (
+  subclassesOptions: OptionItem[]
+): FormConfig => ({
   id: 'heroes-class-create-form-config',
   controls: [
     {
