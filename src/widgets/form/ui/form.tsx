@@ -3,13 +3,13 @@
 import { ReactNode } from 'react'
 import { UseFormReturn } from '../hooks'
 
-interface FormProps {
-  onSubmit?: (data: object) => Promise<void> | void
+interface FormProps<T> {
+  onSubmit?: (data: T) => Promise<void> | void
   children?: ReactNode
-  form: UseFormReturn
+  form: UseFormReturn<T>
 }
 
-export function Form({ children, onSubmit, form }: FormProps) {
+export function Form<T>({ children, onSubmit, form }: FormProps<T>) {
   return (
     <form
       onSubmit={async (e) => {

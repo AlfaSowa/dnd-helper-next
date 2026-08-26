@@ -10,15 +10,21 @@ import {
   useDeleteSubclassMutation,
   useGetSubclassesQuery
 } from '@/containers/subclasses'
-import { Button, Section } from '@/shared/ui'
+import { CreateClassDto, CreateSubclassDto } from '@/shared/api/Api'
+import { Button, Modal, Section } from '@/shared/ui'
 import { Form, FormControls } from '@/widgets/form'
 import { useForm } from '@/widgets/form/hooks'
+import { useState } from 'react'
+import Markdown from 'react-markdown'
 import {
   heroesClassCreateFormConfig,
   heroesSubclassCreateFormConfig
 } from '../lib'
 
 export const AdminHeroesClasses = () => {
+  const [openCreateClassModal, setOpenCreateClassModal] = useState(false)
+  const [openCreateSubClassModal, setOpenCreateSubClassModal] = useState(false)
+
   const { data: classes } = useGetClassesQuery()
   const [addClass] = useAddClassMutation()
   const [deleteClass] = useDeleteClassMutation()
@@ -36,30 +42,32 @@ export const AdminHeroesClasses = () => {
     }
   }
 
-  const classForm = useForm<object>({
+  const classForm = useForm<CreateClassDto>({
     config: heroesClassCreateFormConfig()
   })
-  const subclassForm = useForm<object>({
+  const subclassForm = useForm<CreateSubclassDto>({
     config: heroesSubclassCreateFormConfig()
   })
 
-  const onSubmit = (data: object, type: 'class' | 'subclass') => {
+  const onSubmit = (
+    data: CreateClassDto | CreateSubclassDto,
+    type: 'class' | 'subclass'
+  ) => {
     if (type === 'class') {
       addClass(data)
     }
     if (type === 'subclass') {
       addSubclass(data)
     }
+
+    setOpenCreateSubClassModal(false)
+    setOpenCreateClassModal(false)
   }
 
   return (
     <>
       <div className="flex flex-col gap-6">
         <Section>
-          <div>
-            <Button>добавить класс</Button>
-          </div>
-
           <div className="flex flex-col gap-2">
             {classes?.map((i) => (
               <div key={i.uuid}>
@@ -97,19 +105,21 @@ export const AdminHeroesClasses = () => {
         </Section>
 
         <Section>
-          <div>
-            <Button>добавить подкласс</Button>
-          </div>
-
           <div className="flex flex-col gap-2">
             {subclasses?.map((s) => (
-              <div className="flex gap-4" key={s.uuid}>
-                <div>{s.uuid}</div>
-                <div>{s.name}</div>
-                <div className="ml-auto">
-                  <Button onClick={() => handleDelete(s.uuid, 'subclass')}>
-                    удалить
-                  </Button>
+              <div key={s.uuid}>
+                <div className="flex gap-4">
+                  <div>{s.uuid}</div>
+                  <div>{s.name}</div>
+                  <div className="ml-auto">
+                    <Button onClick={() => handleDelete(s.uuid, 'subclass')}>
+                      удалить
+                    </Button>
+                  </div>
+                </div>
+
+                <div>
+                  <Markdown>{s.markdown}</Markdown>
                 </div>
               </div>
             ))}
@@ -117,31 +127,51 @@ export const AdminHeroesClasses = () => {
         </Section>
       </div>
 
-      <Form onSubmit={(data) => onSubmit(data, 'class')} form={classForm}>
-        <div className="flex flex-col gap-6">
-          <div>Добавить класс</div>
-          <div className="grid grid-cols-5 gap-4">
-            <FormControls form={classForm} />
-          </div>
+      <Button onClick={() => setOpenCreateClassModal(true)}>
+        Добавить класс
+      </Button>
+      <Button onClick={() => setOpenCreateSubClassModal(true)}>
+        Добавить подкласс
+      </Button>
 
-          <div>
-            <Button type="submit">Принять</Button>
-          </div>
-        </div>
-      </Form>
+      <Modal
+        open={openCreateClassModal}
+        onClose={() => setOpenCreateClassModal(false)}
+      >
+        <Form<CreateClassDto>
+          onSubmit={(data) => onSubmit(data, 'class')}
+          form={classForm}
+        >
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-5 gap-4">
+              <FormControls form={classForm} />
+            </div>
 
-      <Form onSubmit={(data) => onSubmit(data, 'subclass')} form={subclassForm}>
-        <div className="flex flex-col gap-6">
-          <div>Добавить подкласс</div>
-          <div className="grid grid-cols-5 gap-4">
+            <div>
+              <Button type="submit">Принять</Button>
+            </div>
+          </div>
+        </Form>
+      </Modal>
+
+      <Modal
+        open={openCreateSubClassModal}
+        onClose={() => setOpenCreateSubClassModal(false)}
+      >
+        <Form<CreateSubclassDto>
+          onSubmit={(data) => onSubmit(data, 'subclass')}
+          form={subclassForm}
+        >
+          <div className="flex flex-col gap-6">
+            <div>Добавить подкласс</div>
             <FormControls form={subclassForm} />
-          </div>
 
-          <div>
-            <Button type="submit">Принять</Button>
+            <div>
+              <Button type="submit">Принять</Button>
+            </div>
           </div>
-        </div>
-      </Form>
+        </Form>
+      </Modal>
     </>
   )
 }

@@ -1,24 +1,32 @@
-import { Select } from '@/shared/ui'
+import { Select, Textfield } from '@/shared/ui'
 import { Input } from '@/shared/ui/input'
 import { ReactNode } from 'react'
 
 type FxType = {
-  onChange?: (v: string | number | boolean) => void
+  onChange?: (v: string | number | boolean | string[]) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any
 }
 
 export type FormControlsRenderType = {
   text: (props: FxType) => ReactNode
+  textfield: (props: FxType) => ReactNode
   number: (props: FxType) => ReactNode
   checkbox: (props: FxType) => ReactNode
   select: (props: FxType) => ReactNode
+  multyselect: (props: FxType) => ReactNode
 }
 
 export const FormControlsRender: FormControlsRenderType = {
   text: ({ onChange, value }) => (
     <Input
       type="text"
+      value={value ?? ''}
+      onChange={(e) => onChange?.(e.target.value)}
+    />
+  ),
+  textfield: ({ onChange, value }) => (
+    <Textfield
       value={value ?? ''}
       onChange={(e) => onChange?.(e.target.value)}
     />
@@ -45,6 +53,13 @@ export const FormControlsRender: FormControlsRenderType = {
         { name: '3333', value: '3' },
         { name: '444', value: '4' }
       ]}
+    />
+  ),
+  multyselect: ({ onChange, value }) => (
+    <Input
+      type="text"
+      value={value ?? ''}
+      onChange={(e) => onChange?.([e.target.value])}
     />
   )
 }

@@ -1,5 +1,5 @@
 import { baseApi } from '@/app/configure-store'
-import { Subclass } from '@/shared/api/Api'
+import { CreateSubclassDto, Subclass } from '@/shared/api/Api'
 
 const apiTags = baseApi.enhanceEndpoints({ addTagTypes: ['Subclasses'] })
 
@@ -17,7 +17,7 @@ export const api = apiTags.injectEndpoints({
             ]
           : [{ type: 'Subclasses', id: 'LIST' }]
     }),
-    addSubclass: build.mutation<Subclass, Partial<Subclass>>({
+    addSubclass: build.mutation<Subclass, Partial<CreateSubclassDto>>({
       query(body) {
         return {
           url: `subclasses`,

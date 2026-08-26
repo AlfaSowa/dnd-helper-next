@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export type BuiltinTypes = 'text' | 'number' | 'select' | 'checkbox'
+export type BuiltinTypes =
+  | 'text'
+  | 'number'
+  | 'select'
+  | 'checkbox'
+  | 'textfield'
+  | 'multyselect'
 
 export type ValueReader<TCtx> = (ctx: TCtx) => string | number | boolean
 

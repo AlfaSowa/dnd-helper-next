@@ -1,5 +1,5 @@
 import { baseApi } from '@/app/configure-store'
-import { Class } from '@/shared/api/Api'
+import { Class, CreateClassDto } from '@/shared/api/Api'
 
 const apiTags = baseApi.enhanceEndpoints({ addTagTypes: ['Classes'] })
 
@@ -15,7 +15,7 @@ export const api = apiTags.injectEndpoints({
             ]
           : [{ type: 'Classes', id: 'LIST' }]
     }),
-    addClass: build.mutation<Class, Partial<Class>>({
+    addClass: build.mutation<Class, Partial<CreateClassDto>>({
       query(body) {
         return {
           url: `classes`,

@@ -26,6 +26,7 @@ export interface Subclass {
   uuid: string;
   /** @example "подкласс паладина 1, подкласс паладина 2" */
   name: string;
+  markdown: string;
   class: Class;
 }
 
@@ -36,8 +37,10 @@ export interface UpdateClassDto {
 
 export interface CreateSubclassDto {
   name: string;
+  markdown: string;
 }
 
 export interface UpdateSubclassDto {
   name?: string;
+  markdown?: string;
 }

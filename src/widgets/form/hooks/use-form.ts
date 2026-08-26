@@ -9,7 +9,7 @@ interface UseFormProps<T> {
   defaultData?: T
 }
 
-export type UseFormReturn<T = object> = {
+export type UseFormReturn<T> = {
   config: FormConfig
   defaultData?: T
   onChange?: (id: string, value: string | number | boolean) => void
