@@ -76,6 +76,8 @@ export const AdminHeroesClasses = () => {
     <>
       <div className="flex flex-col gap-6">
         <Section>
+          <div>Классы</div>
+
           <div className="flex flex-col gap-2">
             {classes?.map((i) => (
               <div key={i.uuid}>
@@ -88,25 +90,26 @@ export const AdminHeroesClasses = () => {
                     </Button>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </Section>
 
-                {i.subclasses.length > 0 && (
-                  <div className="bg-amber-300 p-2">
-                    {i.subclasses.map((s) => (
-                      <div className="flex gap-4" key={s.uuid}>
-                        <div>{s.uuid}</div>
-                        <div>{s.name}</div>
-                        <div className="ml-auto">
-                          <button
-                            className="cursor-pointer hover:text-teal-700"
-                            onClick={() => handleDelete(s.uuid, 'subclass')}
-                          >
-                            удалить
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+        <Section>
+          <div>Подклассы</div>
+
+          <div className="flex flex-col gap-2">
+            {subclasses?.map((i) => (
+              <div key={i.uuid}>
+                <div className="flex gap-4">
+                  <div>{i.uuid}</div>
+                  <div>{i.name}</div>
+                  <div className="ml-auto">
+                    <Button onClick={() => handleDelete(i.uuid, 'subclass')}>
+                      удалить
+                    </Button>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>

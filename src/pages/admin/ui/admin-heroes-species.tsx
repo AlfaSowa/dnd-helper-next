@@ -1,33 +1,34 @@
 'use client'
 
 import {
-  useAddRegionMutation,
-  useDeleteRegionMutation,
-  useGetRegionsQuery
-} from '@/containers/regions'
-import { CreateRegionDto } from '@/shared/api/Api'
+  useAddSpeciesMutation,
+  useDeleteSpeciesMutation,
+  useGetSpeciesQuery
+} from '@/containers/species'
+import { CreateSpeciesDto } from '@/shared/api/Api'
 import { Button, Modal, Section } from '@/shared/ui'
 import { Form, FormControls } from '@/widgets/form'
 import { useForm } from '@/widgets/form/hooks'
 import { useState } from 'react'
-import { worldRegionsCreateFormConfig } from '../lib'
+import { heroesSpeciesCreateFormConfig } from '../lib'
 
-export const AdminWorldRegions = () => {
+export const AdminHeroesSpecies = () => {
   const [open, setOpen] = useState(false)
 
-  const { data } = useGetRegionsQuery()
-  const [addRegion] = useAddRegionMutation()
-  const [deleteRegion] = useDeleteRegionMutation()
+  const { data } = useGetSpeciesQuery()
+  const [addSpecies] = useAddSpeciesMutation()
+  const [deleteSpecies] = useDeleteSpeciesMutation()
 
-  const form = useForm<CreateRegionDto>({
-    config: worldRegionsCreateFormConfig()
+  const form = useForm<CreateSpeciesDto>({
+    config: heroesSpeciesCreateFormConfig()
   })
 
-  const onSubmit = (data: CreateRegionDto) => {
-    addRegion(data)
+  const onSubmit = (data: CreateSpeciesDto) => {
+    addSpecies(data)
   }
+
   const handleDelete = (uuid: string) => {
-    deleteRegion(uuid)
+    deleteSpecies(uuid)
   }
 
   return (
@@ -49,11 +50,11 @@ export const AdminWorldRegions = () => {
       </Section>
 
       <div className="flex gap-2">
-        <Button onClick={() => setOpen(true)}>Добавить регион</Button>
+        <Button onClick={() => setOpen(true)}>Добавить вид</Button>
       </div>
 
       <Modal open={open} onClose={() => setOpen(false)}>
-        <Form<CreateRegionDto> onSubmit={(data) => onSubmit(data)} form={form}>
+        <Form<CreateSpeciesDto> onSubmit={(data) => onSubmit(data)} form={form}>
           <div className="flex flex-col gap-6">
             <FormControls form={form} />
 

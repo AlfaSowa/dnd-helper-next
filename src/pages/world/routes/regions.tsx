@@ -9,8 +9,8 @@ export const RegionsPage = () => {
   return (
     <div className="flex flex-col gap-4">
       {data?.map((i) => (
-        <div key={i.uuid} className="bg-amber-300 py-1 px-2 rounded">
-          <div>{i.name}</div>
+        <div key={i.uuid} className="">
+          <h2>{i.name}</h2>
 
           <p>{i.description}</p>
 

@@ -1,5 +1,5 @@
 import { AdminHeroesClasses } from '../ui'
 
-export const AdminHeroesPage = () => {
+export const AdminHeroesClassesPage = () => {
   return <AdminHeroesClasses />
 }

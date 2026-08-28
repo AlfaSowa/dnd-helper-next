@@ -1,3 +1,4 @@
-export * from './heroes'
+export * from './classes'
 export * from './page'
-export * from './world'
+export * from './regions'
+export * from './species'

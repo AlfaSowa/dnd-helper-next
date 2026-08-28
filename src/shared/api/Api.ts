@@ -12,7 +12,7 @@
 
 export interface CreateClassDto {
   name: string;
-  subclassesIds: string[];
+  subclassesIds: object;
 }
 
 export interface Class {
@@ -33,7 +33,7 @@ export interface Subclass {
 
 export interface UpdateClassDto {
   name?: string;
-  subclassesIds?: string[];
+  subclassesIds?: object;
 }
 
 export interface CreateSubclassDto {
@@ -54,7 +54,35 @@ export interface CreateRegionDto {
   description: string;
 }
 
+export interface Region {
+  uuid: string;
+  /** @example "Королевство Шарно" */
+  name: string;
+  markdown: string;
+  description: string;
+}
+
 export interface UpdateRegionDto {
+  name?: string;
+  markdown?: string;
+  description?: string;
+}
+
+export interface CreateSpeciesDto {
+  name: string;
+  markdown: string;
+  description: string;
+}
+
+export interface Species {
+  uuid: string;
+  /** @example "Ланеши" */
+  name: string;
+  markdown: string;
+  description: string;
+}
+
+export interface UpdateSpeciesDto {
   name?: string;
   markdown?: string;
   description?: string;

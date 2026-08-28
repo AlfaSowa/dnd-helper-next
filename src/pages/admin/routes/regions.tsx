@@ -1,11 +1,9 @@
 import { Section } from '@/shared/ui'
 import { AdminWorldRegions } from '../ui'
 
-export const AdminWorldPage = () => {
+export const AdminWorldRegionsPage = () => {
   return (
     <Section>
-      <div>регионы</div>
-
       <AdminWorldRegions />
     </Section>
   )

@@ -16,11 +16,14 @@ export const AppRoutes = {
   admin: {
     path: '/admin',
     label: 'Админ панель',
-    heroes: {
-      path: '/admin/heroes'
+    classes: {
+      path: '/admin/classes'
     },
-    world: {
-      path: '/admin/world'
+    regions: {
+      path: '/admin/regions'
+    },
+    species: {
+      path: '/admin/species'
     }
   },
   characters: {

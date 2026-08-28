@@ -12,12 +12,16 @@ export const AdminLayout = ({
       path: AppRoutes.admin.path
     },
     {
-      title: 'Герои',
-      path: AppRoutes.admin.heroes.path
+      title: 'Классы',
+      path: AppRoutes.admin.classes.path
     },
     {
-      title: 'Мир',
-      path: AppRoutes.admin.world.path
+      title: 'Виды',
+      path: AppRoutes.admin.species.path
+    },
+    {
+      title: 'Регионы',
+      path: AppRoutes.admin.regions.path
     }
   ]
 

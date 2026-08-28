@@ -1,11 +1,11 @@
 import { baseApi } from '@/app/configure-store'
-import { CreateRegionDto } from '@/shared/api/Api'
+import { CreateRegionDto, Region } from '@/shared/api/Api'
 
 const apiTags = baseApi.enhanceEndpoints({ addTagTypes: ['Regions'] })
 
 export const api = apiTags.injectEndpoints({
   endpoints: (build) => ({
-    getRegions: build.query<any[], void>({
+    getRegions: build.query<Region[], void>({
       query: () => `regions`,
       providesTags: (result) =>
         result
@@ -15,7 +15,7 @@ export const api = apiTags.injectEndpoints({
             ]
           : [{ type: 'Regions', id: 'LIST' }]
     }),
-    addRegion: build.mutation<any, Partial<CreateRegionDto>>({
+    addRegion: build.mutation<Region, Partial<CreateRegionDto>>({
       query(body) {
         return {
           url: `regions`,
