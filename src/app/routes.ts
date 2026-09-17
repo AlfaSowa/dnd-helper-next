@@ -24,6 +24,12 @@ export const AppRoutes = {
     },
     species: {
       path: '/admin/species'
+    },
+    bestiary: {
+      path: '/admin/bestiary',
+      monsterType: {
+        path: '/admin/bestiary/monster-type'
+      }
     }
   },
   glossary: {

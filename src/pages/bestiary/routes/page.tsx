@@ -1,5 +1,5 @@
-import { Section } from '@/shared/ui'
+import { BestiaryPage } from '../ui'
 
 export const Page = () => {
-  return <Section>bestiary</Section>
+  return <BestiaryPage />
 }

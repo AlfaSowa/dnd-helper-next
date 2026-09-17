@@ -87,3 +87,37 @@ export interface UpdateSpeciesDto {
   markdown?: string;
   description?: string;
 }
+
+export interface CreateMonsterDto {
+  name: string;
+  /** @example "нежить, дракон" */
+  typeId: string;
+}
+
+export interface Monster {
+  uuid: string;
+  /** @example "зомби, жопс" */
+  name: string;
+  type: MonsterType;
+}
+
+export interface MonsterType {
+  uuid: string;
+  /** @example "нежить, дракон" */
+  name: string;
+  monsters: Monster[];
+}
+
+export interface UpdateMonsterDto {
+  name?: string;
+  /** @example "нежить, дракон" */
+  typeId?: string;
+}
+
+export interface CreateMonsterTypeDto {
+  name: string;
+}
+
+export interface UpdateMonsterTypeDto {
+  name?: string;
+}

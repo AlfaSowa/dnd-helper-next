@@ -13,7 +13,7 @@ type CreateContentProps<T, E extends ElementsCoreType> = {
   formConfig: FormConfig
   buttonTxt: string
   elements: E[] | undefined
-  elementsTitle: string
+  elementsTitle?: string
 }
 
 export function CreateContent<T, E extends ElementsCoreType>({
@@ -30,10 +30,22 @@ export function CreateContent<T, E extends ElementsCoreType>({
     config: formConfig
   })
 
+  const onHandleSubmit = (data: T) => {
+    onSubmit(data)
+
+    setOpen(false)
+  }
+
   return (
     <>
       <Section>
-        <div>{elementsTitle}</div>
+        <div className="flex items-center">
+          {elementsTitle && <div>{elementsTitle}</div>}
+
+          <Button className="ml-auto" onClick={() => setOpen(true)}>
+            {buttonTxt}
+          </Button>
+        </div>
 
         <div className="flex flex-col gap-2">
           {elements?.map((i) => (
@@ -50,10 +62,8 @@ export function CreateContent<T, E extends ElementsCoreType>({
         </div>
       </Section>
 
-      <Button onClick={() => setOpen(true)}>{buttonTxt}</Button>
-
       <Modal open={open} onClose={() => setOpen(false)}>
-        <Form<T> onSubmit={(data) => onSubmit(data)} form={classForm}>
+        <Form<T> onSubmit={(data) => onHandleSubmit(data)} form={classForm}>
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <FormControls form={classForm} />

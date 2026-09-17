@@ -45,10 +45,10 @@ export const Dropdown = ({
               top: rect.bottom + window.scrollY,
               left: rect.left + window.scrollX
             }}
-            className="pt-2 absolute"
+            className="pt-2 absolute z-1000"
           >
             <div
-              className={twMerge('min-w-60 z-50 bg-amber-700 p-2 rounded')}
+              className={twMerge('min-w-60 bg-amber-700 p-2 rounded')}
               ref={dropdownRef}
             >
               {children}

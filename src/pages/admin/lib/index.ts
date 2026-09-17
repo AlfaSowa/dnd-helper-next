@@ -1,3 +1,5 @@
+export * from './bestiary-monster-create-form-config'
+export * from './bestiary-monster-type-create-form-config'
 export * from './heroes-class-create-form-config'
 export * from './heroes-species-create-form-config'
 export * from './heroes-subclass-create-form-config'

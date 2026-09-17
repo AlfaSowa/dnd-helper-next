@@ -1,4 +1,6 @@
+export * from './bestiary'
 export * from './classes'
+export * from './monster-type'
 export * from './page'
 export * from './regions'
 export * from './species'

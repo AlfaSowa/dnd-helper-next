@@ -1,31 +1,19 @@
 import { MenuItem } from '@/shared/ui'
 import { AppRoutes } from '../routes'
 
-export const AdminLayout = ({
+export const BestiaryLayout = ({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) => {
   const menu = [
     {
-      title: 'Админ',
-      path: AppRoutes.admin.path
-    },
-    {
-      title: 'Классы',
-      path: AppRoutes.admin.classes.path
-    },
-    {
-      title: 'Виды',
-      path: AppRoutes.admin.species.path
-    },
-    {
-      title: 'Регионы',
-      path: AppRoutes.admin.regions.path
-    },
-    {
-      title: 'Бестиарий',
+      title: 'Монстры',
       path: AppRoutes.admin.bestiary.path
+    },
+    {
+      title: 'Типы монстров',
+      path: AppRoutes.admin.bestiary.monsterType.path
     }
   ]
 
