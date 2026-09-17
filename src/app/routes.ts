@@ -26,36 +26,52 @@ export const AppRoutes = {
       path: '/admin/species'
     }
   },
-  characters: {
-    path: '/characters',
-    label: 'Персонажи',
-    create: {
-      path: '/characters/create',
-      getPath: () => '/characters/create'
+  glossary: {
+    path: '/glossary',
+    label: 'глосарий',
+    about: {
+      path: '/glossary/about',
+      label: 'Добро пожаловать в Эферис'
     },
-    details: {
-      path: '/characters/:id',
-      getPath: (id: string) => `/characters/${id}`
+    mechanics: {
+      path: '/glossary/mechanics',
+      label: 'Механики'
+    },
+    transformations: {
+      path: '/glossary/transformations',
+      label: 'Трансформации'
+    },
+    pantheon: {
+      path: '/glossary/pantheon',
+      label: 'Пантеон'
     }
   },
   heroes: {
     path: '/heroes',
     label: 'Герои',
     classes: {
-      path: '/heroes/classes'
+      path: '/heroes/classes',
+      label: 'Классы'
     },
     backgrounds: {
-      path: '/heroes/backgrounds'
+      path: '/heroes/backgrounds',
+      label: 'Происхождения'
     },
     species: {
-      path: '/heroes/species'
+      path: '/heroes/species',
+      label: 'Виды'
     }
   },
   world: {
     path: '/world',
     label: 'Мир',
     regions: {
-      path: '/world/regions'
+      path: '/world/regions',
+      label: 'Регионы'
+    },
+    factions: {
+      path: '/world/factions',
+      label: 'Фракции'
     }
   },
   bestiary: {
@@ -64,6 +80,19 @@ export const AppRoutes = {
     details: {
       path: '/bestiary/:id',
       getPath: (id: string) => `/bestiary/${id}`
+    }
+  },
+  characters: {
+    path: '/characters',
+    label: 'Персонажи',
+    details: {
+      path: '/characters/:id',
+      getPath: (id: string) => `/characters/${id}`,
+      label: 'Детали персонажа'
+    },
+    create: {
+      path: '/characters/create',
+      label: 'Создание персонажа'
     }
   }
 }

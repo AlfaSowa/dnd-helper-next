@@ -1,1 +1,1 @@
-export { SpeciesPage as default } from '@/pages/heroes'
+export { HeroesSpeciesPage as default } from '@/pages/heroes'

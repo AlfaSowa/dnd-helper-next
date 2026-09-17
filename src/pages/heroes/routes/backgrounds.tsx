@@ -1,5 +1,5 @@
 import { Section } from '@/shared/ui'
 
-export const BackgroundsPage = () => {
-  return <Section>backgrounds</Section>
+export const HeroesBackgroundsPage = () => {
+  return <Section>HeroesBackgroundsPage</Section>
 }

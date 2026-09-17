@@ -1,5 +1,5 @@
 import { Section } from '@/shared/ui'
 
-export const DetailsPage = () => {
-  return <Section>DetailsPage</Section>
+export const BestiaryDetailsPage = () => {
+  return <Section>BestiaryDetailsPage</Section>
 }

@@ -17,6 +17,16 @@ export const HeaderMenu = () => {
       title: 'Бестиарий',
       path: AppRoutes.bestiary.path,
       hint: 'Монстры Эфериса'
+    },
+    {
+      title: 'Глосарий',
+      path: AppRoutes.glossary.path,
+      hint: 'Глосарий'
+    },
+    {
+      title: 'Мои персонажи',
+      path: AppRoutes.characters.path,
+      hint: 'Мои персонажи'
     }
   ]
 

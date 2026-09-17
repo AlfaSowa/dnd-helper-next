@@ -1,7 +1,7 @@
 import { Section } from '@/shared/ui'
 import { HeroesSpecies } from '../ui'
 
-export const SpeciesPage = () => {
+export const HeroesSpeciesPage = () => {
   return (
     <Section>
       <HeroesSpecies />

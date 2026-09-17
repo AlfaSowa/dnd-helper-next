@@ -1,4 +1,5 @@
 export * from './backgrounds'
 export * from './classes'
+export * from './feats'
 export * from './page'
 export * from './species'

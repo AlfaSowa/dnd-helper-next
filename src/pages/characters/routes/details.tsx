@@ -1,6 +1,6 @@
 import { CharacterCharacteristic, CharacterInfo } from '../ui'
 
-export const DetailsPage = () => {
+export const CharactersDetailsPage = () => {
   return (
     <div className="flex flex-col gap-3">
       <CharacterInfo />

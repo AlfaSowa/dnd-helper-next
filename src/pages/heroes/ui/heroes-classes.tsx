@@ -49,17 +49,19 @@ export const HeroesClasses = () => {
 
       <div className="flex flex-col gap-4">
         {filteredClasses.map((i) => (
-          <div key={i.uuid} className="bg-amber-300 py-1 px-2 rounded">
-            <div>{i.name}</div>
+          <div key={i.uuid}>
+            <div className="px-2 bg-bg">{i.name}</div>
 
             <div className="flex flex-col gap-2">
               {i.subclasses?.map((j) => (
-                <div key={j.uuid} className="bg-amber-700 py-1 px-2 rounded">
+                <div key={j.uuid} className="flex flex-col gap-2">
                   <div className="text-2xl">{j.name}</div>
 
                   <p>{j.description}</p>
 
-                  <Markdown>{j.markdown}</Markdown>
+                  <div>
+                    <Markdown>{j.markdown}</Markdown>
+                  </div>
                 </div>
               ))}
             </div>

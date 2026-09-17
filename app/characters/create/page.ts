@@ -1,1 +1,1 @@
-export { CreatePage as default } from '@/pages/characters'
+export { CharactersCreatePage as default } from '@/pages/characters'

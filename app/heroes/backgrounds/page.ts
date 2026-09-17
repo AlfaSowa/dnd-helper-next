@@ -1,1 +1,1 @@
-export { BackgroundsPage as default } from '@/pages/heroes'
+export { HeroesBackgroundsPage as default } from '@/pages/heroes'

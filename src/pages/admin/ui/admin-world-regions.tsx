@@ -6,63 +6,30 @@ import {
   useGetRegionsQuery
 } from '@/containers/regions'
 import { CreateRegionDto } from '@/shared/api/Api'
-import { Button, Modal, Section } from '@/shared/ui'
-import { Form, FormControls } from '@/widgets/form'
-import { useForm } from '@/widgets/form/hooks'
-import { useState } from 'react'
+import { CreateContent } from '@/widgets/create-content'
 import { worldRegionsCreateFormConfig } from '../lib'
 
 export const AdminWorldRegions = () => {
-  const [open, setOpen] = useState(false)
-
   const { data } = useGetRegionsQuery()
   const [addRegion] = useAddRegionMutation()
   const [deleteRegion] = useDeleteRegionMutation()
 
-  const form = useForm<CreateRegionDto>({
-    config: worldRegionsCreateFormConfig()
-  })
-
   const onSubmit = (data: CreateRegionDto) => {
     addRegion(data)
   }
+
   const handleDelete = (uuid: string) => {
     deleteRegion(uuid)
   }
 
   return (
-    <div>
-      <Section>
-        <div className="flex flex-col gap-2">
-          {data?.map((i) => (
-            <div key={i.uuid}>
-              <div className="flex gap-4">
-                <div>{i.uuid}</div>
-                <div>{i.name}</div>
-                <div className="ml-auto">
-                  <Button onClick={() => handleDelete(i.uuid)}>удалить</Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <div className="flex gap-2">
-        <Button onClick={() => setOpen(true)}>Добавить регион</Button>
-      </div>
-
-      <Modal open={open} onClose={() => setOpen(false)}>
-        <Form<CreateRegionDto> onSubmit={(data) => onSubmit(data)} form={form}>
-          <div className="flex flex-col gap-6">
-            <FormControls form={form} />
-
-            <div>
-              <Button type="submit">Принять</Button>
-            </div>
-          </div>
-        </Form>
-      </Modal>
-    </div>
+    <CreateContent
+      formConfig={worldRegionsCreateFormConfig()}
+      onSubmit={onSubmit}
+      buttonTxt="Добавить регион"
+      elements={data}
+      elementsTitle="регионы"
+      handleDelete={handleDelete}
+    />
   )
 }
