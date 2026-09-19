@@ -14,6 +14,7 @@ type CreateContentProps<T, E extends ElementsCoreType> = {
   buttonTxt: string
   elements: E[] | undefined
   elementsTitle?: string
+  additionalFields?: string[]
 }
 
 export function CreateContent<T, E extends ElementsCoreType>({
@@ -22,7 +23,8 @@ export function CreateContent<T, E extends ElementsCoreType>({
   formConfig,
   buttonTxt,
   elements,
-  elementsTitle
+  elementsTitle,
+  additionalFields
 }: CreateContentProps<T, E>) {
   const [open, setOpen] = useState(false)
 
@@ -53,6 +55,14 @@ export function CreateContent<T, E extends ElementsCoreType>({
               <div className="flex gap-4">
                 <div>{i.uuid}</div>
                 <div>{i.name}</div>
+                {additionalFields?.map((field) => {
+                  const fieldData = i?.[field as keyof E] as string
+
+                  if (fieldData) {
+                    return <div key={field}>{fieldData}</div>
+                  }
+                  return null
+                })}
                 <div className="ml-auto">
                   <Button onClick={() => handleDelete(i.uuid)}>удалить</Button>
                 </div>

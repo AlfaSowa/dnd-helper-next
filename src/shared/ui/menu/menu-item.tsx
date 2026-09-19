@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { twMerge } from 'tailwind-merge'
 
 export type MenuItemType = {
   title: string
@@ -7,13 +10,24 @@ export type MenuItemType = {
 
 interface MenuItemProps {
   item: MenuItemType
+  className?: string
+  onClick?: () => void
 }
 
-export const MenuItem = ({ item }: MenuItemProps) => {
+export const MenuItem = ({ item, className, onClick }: MenuItemProps) => {
+  const handleClick = () => {
+    onClick?.()
+  }
+
   if (item.path) {
     return (
-      <li className="hover:text-amber-300">
-        <Link href={item.path}>{item.title}</Link>
+      <li onClick={handleClick}>
+        <Link
+          className={twMerge('hover:text-amber-300 block', className)}
+          href={item.path}
+        >
+          {item.title}
+        </Link>
       </li>
     )
   }

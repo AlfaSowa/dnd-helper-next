@@ -88,10 +88,28 @@ export interface UpdateSpeciesDto {
   description?: string;
 }
 
+export interface CreateMonsterAbilityDto {
+  abilityId: string;
+  value: number;
+}
+
 export interface CreateMonsterDto {
   name: string;
-  /** @example "нежить, дракон" */
   typeId: string;
+  sizeId: string;
+  armorClass: number;
+  /** @example "20d6+20" */
+  hitPoints: string;
+  /** Характеристики монстра */
+  abilities: CreateMonsterAbilityDto[];
+  challenge: number;
+}
+
+export interface MonsterSize {
+  uuid: string;
+  /** @example "маленький, гиганский" */
+  name: string;
+  monsters: Monster[];
 }
 
 export interface Monster {
@@ -99,6 +117,7 @@ export interface Monster {
   /** @example "зомби, жопс" */
   name: string;
   type: MonsterType;
+  size: MonsterSize;
 }
 
 export interface MonsterType {
@@ -110,8 +129,14 @@ export interface MonsterType {
 
 export interface UpdateMonsterDto {
   name?: string;
-  /** @example "нежить, дракон" */
   typeId?: string;
+  sizeId?: string;
+  armorClass?: number;
+  /** @example "20d6+20" */
+  hitPoints?: string;
+  /** Характеристики монстра */
+  abilities?: CreateMonsterAbilityDto[];
+  challenge?: number;
 }
 
 export interface CreateMonsterTypeDto {
@@ -120,4 +145,48 @@ export interface CreateMonsterTypeDto {
 
 export interface UpdateMonsterTypeDto {
   name?: string;
+}
+
+export interface CreateMonsterSizeDto {
+  name: string;
+}
+
+export interface UpdateMonsterSizeDto {
+  name?: string;
+}
+
+export interface CreateAbilityDto {
+  name: string;
+  code: string;
+  description: string | null;
+}
+
+export interface Ability {
+  uuid: string;
+  /** @example "сила, ловкость" */
+  name: string;
+}
+
+export interface UpdateAbilityDto {
+  name?: string;
+  code?: string;
+  description?: string | null;
+}
+
+export interface CreateSkillDto {
+  name: string;
+  code: string;
+  description: string | null;
+}
+
+export interface Skill {
+  uuid: string;
+  /** @example "атлетика, медицина" */
+  name: string;
+}
+
+export interface UpdateSkillDto {
+  name?: string;
+  code?: string;
+  description?: string | null;
 }

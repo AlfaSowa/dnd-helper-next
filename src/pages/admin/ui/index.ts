@@ -1,5 +1,7 @@
 export * from './admin-bestiary'
+export * from './admin-bestiary-monster-size'
 export * from './admin-bestiary-monster-type'
 export * from './admin-heroes-classes'
 export * from './admin-heroes-species'
+export * from './admin-skills'
 export * from './admin-world-regions'

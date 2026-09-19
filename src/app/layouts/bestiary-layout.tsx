@@ -14,6 +14,10 @@ export const BestiaryLayout = ({
     {
       title: 'Типы монстров',
       path: AppRoutes.admin.bestiary.monsterType.path
+    },
+    {
+      title: 'Размеры монстров',
+      path: AppRoutes.admin.bestiary.monsterSize.path
     }
   ]
 

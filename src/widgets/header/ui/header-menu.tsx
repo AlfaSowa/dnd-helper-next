@@ -1,7 +1,12 @@
 import { AppRoutes } from '@/app/routes'
-import { MenuItem } from '@/shared/ui'
+import { MenuItem, Portal } from '@/shared/ui'
 
-export const HeaderMenu = () => {
+type HeaderMenuProps = {
+  open: boolean
+  setOpen: (value: boolean) => void
+}
+
+export const HeaderMenu = ({ open, setOpen }: HeaderMenuProps) => {
   const menu = [
     {
       title: 'Герои',
@@ -31,10 +36,29 @@ export const HeaderMenu = () => {
   ]
 
   return (
-    <ul className="flex gap-2 items-center">
-      {menu.map((item) => (
-        <MenuItem key={item.path} item={item} />
-      ))}
-    </ul>
+    <>
+      <ul className="hidden sm:flex gap-2 items-center">
+        {menu.map((item) => (
+          <MenuItem key={item.path} item={item} />
+        ))}
+      </ul>
+
+      {open && (
+        <Portal>
+          <div className="absolute bg-bg w-full h-[calc(100%-64px)] top-16 left-0 py-4">
+            <ul className="flex flex-col">
+              {menu.map((item) => (
+                <MenuItem
+                  onClick={() => setOpen(false)}
+                  className="p-2 pointer"
+                  key={item.path}
+                  item={item}
+                />
+              ))}
+            </ul>
+          </div>
+        </Portal>
+      )}
+    </>
   )
 }

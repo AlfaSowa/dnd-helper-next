@@ -17,6 +17,9 @@ export const api = apiTags.injectEndpoints({
             ]
           : [{ type: 'Bestiary', id: 'LIST' }]
     }),
+    getMonster: build.query<Monster, string>({
+      query: (id) => `bestiary/${id}`
+    }),
     addMonster: build.mutation<Monster, Partial<CreateMonsterDto>>({
       query(body) {
         return {
@@ -45,5 +48,6 @@ export const api = apiTags.injectEndpoints({
 export const {
   useAddMonsterMutation,
   useDeleteMonsterMutation,
-  useGetBestiaryQuery
+  useGetBestiaryQuery,
+  useGetMonsterQuery
 } = api

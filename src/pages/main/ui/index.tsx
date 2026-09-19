@@ -1,6 +1,7 @@
 'use client'
 import { AppRoutes } from '@/app/routes'
-import { Card, Section } from '@/shared/ui'
+import { CardsGrid } from '@/entities/cards-grid'
+import { Section } from '@/shared/ui'
 
 export const Page = () => {
   const charactersMenu = [
@@ -60,33 +61,15 @@ export const Page = () => {
   return (
     <div className="flex flex-col gap-6">
       <Section title="Персонажи">
-        <div className="grid grid-cols-6 gap-2">
-          {charactersMenu.map((i) => (
-            <Card link={i.path} title={i.hint} key={i.path}>
-              {i.title}
-            </Card>
-          ))}
-        </div>
+        <CardsGrid elements={charactersMenu} />
       </Section>
 
       <Section title="Мир Эфериса">
-        <div className="grid grid-cols-6 gap-2">
-          {worldMenu.map((i) => (
-            <Card link={i.path} title={i.hint} key={i.path}>
-              {i.title}
-            </Card>
-          ))}
-        </div>
+        <CardsGrid elements={worldMenu} />
       </Section>
 
       <Section title="Глосарий">
-        <div className="grid grid-cols-6 gap-2">
-          {glossaryMenu.map((i) => (
-            <Card link={i.path} title={i.hint} key={i.path}>
-              {i.title}
-            </Card>
-          ))}
-        </div>
+        <CardsGrid elements={glossaryMenu} />
       </Section>
     </div>
   )

@@ -25,10 +25,19 @@ export const AppRoutes = {
     species: {
       path: '/admin/species'
     },
+    abilities: {
+      path: '/admin/abilities'
+    },
+    skills: {
+      path: '/admin/skills'
+    },
     bestiary: {
       path: '/admin/bestiary',
       monsterType: {
         path: '/admin/bestiary/monster-type'
+      },
+      monsterSize: {
+        path: '/admin/bestiary/monster-size'
       }
     }
   },

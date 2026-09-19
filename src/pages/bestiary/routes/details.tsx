@@ -1,4 +1,4 @@
-import { Section } from '@/shared/ui'
+import { MonsterDetails } from '../ui'
 
 export const BestiaryDetailsPage = async ({
   params
@@ -7,5 +7,9 @@ export const BestiaryDetailsPage = async ({
 }) => {
   const { id } = await params
 
-  return <Section>BestiaryDetailsPage - {id} </Section>
+  return (
+    <div>
+      <MonsterDetails id={id} />
+    </div>
+  )
 }

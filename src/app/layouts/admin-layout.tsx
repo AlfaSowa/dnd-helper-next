@@ -26,6 +26,14 @@ export const AdminLayout = ({
     {
       title: 'Бестиарий',
       path: AppRoutes.admin.bestiary.path
+    },
+    {
+      title: 'Характеристики',
+      path: AppRoutes.admin.abilities.path
+    },
+    {
+      title: 'Навыки',
+      path: AppRoutes.admin.skills.path
     }
   ]
 
