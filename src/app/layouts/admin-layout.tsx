@@ -34,6 +34,14 @@ export const AdminLayout = ({
     {
       title: 'Навыки',
       path: AppRoutes.admin.skills.path
+    },
+    {
+      title: 'Типы урона',
+      path: AppRoutes.admin.damages.path
+    },
+    {
+      title: 'Типы состояния',
+      path: AppRoutes.admin.conditions.path
     }
   ]
 

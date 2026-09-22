@@ -93,6 +93,11 @@ export interface CreateMonsterAbilityDto {
   value: number;
 }
 
+export interface CreateMonsterSkillDto {
+  skillId: string;
+  value: number;
+}
+
 export interface CreateMonsterDto {
   name: string;
   typeId: string;
@@ -102,6 +107,8 @@ export interface CreateMonsterDto {
   hitPoints: string;
   /** Характеристики монстра */
   abilities: CreateMonsterAbilityDto[];
+  /** Навыки монстра */
+  skills: CreateMonsterSkillDto[];
   challenge: number;
 }
 
@@ -136,6 +143,8 @@ export interface UpdateMonsterDto {
   hitPoints?: string;
   /** Характеристики монстра */
   abilities?: CreateMonsterAbilityDto[];
+  /** Навыки монстра */
+  skills?: CreateMonsterSkillDto[];
   challenge?: number;
 }
 
@@ -189,4 +198,32 @@ export interface UpdateSkillDto {
   name?: string;
   code?: string;
   description?: string | null;
+}
+
+export interface CreateDamageDto {
+  name: string;
+}
+
+export interface Damage {
+  uuid: string;
+  /** @example "огонь, молния" */
+  name: string;
+}
+
+export interface UpdateDamageDto {
+  name?: string;
+}
+
+export interface CreateConditionDto {
+  name: string;
+}
+
+export interface Condition {
+  uuid: string;
+  /** @example "огонь, молния" */
+  name: string;
+}
+
+export interface UpdateConditionDto {
+  name?: string;
 }

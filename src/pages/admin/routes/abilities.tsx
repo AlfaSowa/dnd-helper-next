@@ -1,4 +1,4 @@
-import { AdminAbilities } from '../ui/admin-abilities'
+import { AdminAbilities } from '../ui'
 
 export const AdminAbilitiesPage = () => {
   return <AdminAbilities />

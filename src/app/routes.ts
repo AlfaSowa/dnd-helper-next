@@ -31,6 +31,12 @@ export const AppRoutes = {
     skills: {
       path: '/admin/skills'
     },
+    damages: {
+      path: '/admin/damages'
+    },
+    conditions: {
+      path: '/admin/conditions'
+    },
     bestiary: {
       path: '/admin/bestiary',
       monsterType: {
