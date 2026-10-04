@@ -27,6 +27,7 @@ export function CreateContent<T, E extends ElementsCoreType>({
   additionalFields
 }: CreateContentProps<T, E>) {
   const [open, setOpen] = useState(false)
+  const [value, setValue] = useState<string>()
 
   const classForm = useForm<T>({
     config: formConfig

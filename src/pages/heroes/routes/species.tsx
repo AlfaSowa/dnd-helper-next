@@ -1,10 +1,15 @@
+'use client'
+
+import { useGetSpeciesQuery } from '@/containers/species'
 import { Section } from '@/shared/ui'
-import { HeroesSpecies } from '../ui'
+import { ShowContent } from '@/widgets/show-content'
 
 export const HeroesSpeciesPage = () => {
+  const { data } = useGetSpeciesQuery()
+
   return (
     <Section>
-      <HeroesSpecies />
+      <ShowContent data={data} />
     </Section>
   )
 }

@@ -33,8 +33,10 @@
   --color-primary: #403d39;
   --color-secondary: #252422;
   --color-odd: #eb5e28;
+
+  --md-editor-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

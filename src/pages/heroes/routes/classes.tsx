@@ -1,10 +1,76 @@
+'use client'
+
+import { useGetClassesQuery } from '@/containers/classes'
 import { Section } from '@/shared/ui'
-import { HeroesClasses } from '../ui'
+import { useMemo, useState } from 'react'
+import Markdown from 'react-markdown'
 
 export const HeroesClassesPage = () => {
+  const { data } = useGetClassesQuery()
+  const [selectedUuid, setSelectedUuid] = useState<string | null>(null)
+
+  const filteredClasses = useMemo(() => {
+    if (!data) return []
+
+    if (!selectedUuid) {
+      return data
+    }
+
+    return data.filter((item) => item.uuid === selectedUuid)
+  }, [data, selectedUuid])
+
+  const handleClick = (uuid: string) => {
+    setSelectedUuid(uuid)
+  }
+
+  const handleReset = () => {
+    setSelectedUuid(null)
+  }
+
   return (
     <Section>
-      <HeroesClasses />
+      <div className="flex flex-col gap-2">
+        <div className="flex gap-2">
+          <button
+            className="rounded p-1 bg-amber-600 cursor-pointer"
+            onClick={() => handleReset()}
+          >
+            Все
+          </button>
+
+          {data?.map((i) => (
+            <button
+              className="rounded p-1 bg-amber-600 cursor-pointer"
+              onClick={() => handleClick(i.uuid)}
+              key={i.uuid}
+            >
+              {i.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {filteredClasses.map((i) => (
+            <div key={i.uuid}>
+              <div className="px-2 bg-bg">{i.name}</div>
+
+              <div className="flex flex-col gap-2">
+                {i.subclasses?.map((j) => (
+                  <div key={j.uuid} className="flex flex-col gap-2">
+                    <div className="text-2xl">{j.name}</div>
+
+                    <p>{j.description}</p>
+
+                    <div>
+                      <Markdown>{j.markdown}</Markdown>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </Section>
   )
 }
