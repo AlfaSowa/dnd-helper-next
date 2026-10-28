@@ -22,10 +22,7 @@ export const MenuItem = ({ item, className, onClick }: MenuItemProps) => {
   if (item.path) {
     return (
       <li onClick={handleClick}>
-        <Link
-          className={twMerge('hover:text-amber-300 block', className)}
-          href={item.path}
-        >
+        <Link className={twMerge('block', className)} href={item.path}>
           {item.title}
         </Link>
       </li>

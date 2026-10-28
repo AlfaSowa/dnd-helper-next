@@ -13,7 +13,7 @@ export const RootLayout = ({
   children: React.ReactNode
 }>) => {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-bg">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

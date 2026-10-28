@@ -2,22 +2,22 @@
 
 @layer base {
   h1 {
-    @apply text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl;
+    @apply text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl;
   }
   h2 {
-    @apply text-3xl font-bold tracking-tight text-gray-900 md:text-4xl mb-4;
+    @apply text-3xl font-bold tracking-tight md:text-4xl mb-4;
   }
   h3 {
-    @apply text-2xl font-bold text-gray-900 md:text-3xl;
+    @apply text-2xl font-bold md:text-3xl;
   }
   h4 {
-    @apply text-xl font-semibold text-gray-900 md:text-2xl;
+    @apply text-xl font-semibold md:text-2xl;
   }
   h5 {
-    @apply text-lg font-semibold text-gray-800 md:text-xl mb-1;
+    @apply text-lg font-semibold md:text-xl mb-1;
   }
   h6 {
-    @apply text-base font-semibold text-gray-700;
+    @apply text-base font-semibold;
   }
 
   svg {
@@ -28,15 +28,14 @@
 }
 
 @theme {
-  --color-bg: rgba(197, 187, 164);
-  --color-main: rgba(149, 138, 122);
-  --color-primary: #403d39;
-  --color-secondary: #252422;
-  --color-odd: #eb5e28;
+  --color-bg: #ca9c68;
+  --color-main: #906d4b;
+  --color-primary: #13191f;
+  --color-secondary: #594c3d;
+  --color-odd: #2b2f2e;
+
+  --color-text: #ca9c68;
+  --color-text-hover: #906d4b;
 
   --md-editor-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-* {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

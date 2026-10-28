@@ -16,14 +16,16 @@ export const Card = ({ children, onClick, title, link }: CardProps) => {
     <div
       onClick={() => {}}
       className={twMerge(
-        'shadow shadow-gray-600 rounded',
-        (onClick || link) && 'cursor-pointer hover:bg-gray-100/50'
+        'rounded',
+        (onClick || link) && 'group cursor-pointer bg-main hover:bg-secondary'
       )}
     >
       {link && (
         <Link href={link} className="p-2 block">
           {title && (
-            <div className="text-xs text-gray-500 truncate">{title}</div>
+            <div className="text-xs text-secondary group-hover:text-main truncate">
+              {title}
+            </div>
           )}
           {children}
         </Link>
@@ -31,9 +33,7 @@ export const Card = ({ children, onClick, title, link }: CardProps) => {
 
       {!link && (
         <div className="p-2">
-          {title && (
-            <div className="text-xs text-gray-500 truncate">{title}</div>
-          )}
+          {title && <div className="text-xs truncate">{title}</div>}
           {children}
         </div>
       )}

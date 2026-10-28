@@ -7,7 +7,7 @@ import { Portal } from '../portal'
 export interface DropdownProps {
   children: ReactNode
   isOpen: boolean
-  anchorEl: RefObject<HTMLElement>
+  anchorEl: RefObject<HTMLElement | null>
   onClose: () => void
 }
 
@@ -23,7 +23,7 @@ export const Dropdown = ({
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(e.target as Node) &&
-      !anchorEl.current.contains(e.target as Node)
+      anchorEl.current?.contains(e.target as Node)
     ) {
       onClose()
     }
@@ -41,10 +41,10 @@ export const Dropdown = ({
       {isOpen && (
         <Portal>
           <div
-            style={{
-              top: rect.bottom + window.scrollY,
-              left: rect.left + window.scrollX
-            }}
+            // style={{
+            //   top: rect.bottom + window.scrollY,
+            //   left: rect.left + window.scrollX
+            // }}
             className="pt-2 absolute z-1000"
           >
             <div

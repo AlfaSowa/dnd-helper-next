@@ -9,7 +9,7 @@ type HeaderMenuProps = {
 export const HeaderMenu = ({ open, setOpen }: HeaderMenuProps) => {
   const menu = [
     {
-      title: 'Герои',
+      title: 'Персонажи',
       path: AppRoutes.heroes.path,
       hint: 'Все о создании героев в мире Эфериса'
     },
@@ -22,24 +22,28 @@ export const HeaderMenu = ({ open, setOpen }: HeaderMenuProps) => {
       title: 'Бестиарий',
       path: AppRoutes.bestiary.path,
       hint: 'Монстры Эфериса'
-    },
-    {
-      title: 'Глосарий',
-      path: AppRoutes.glossary.path,
-      hint: 'Глосарий'
-    },
-    {
-      title: 'Мои персонажи',
-      path: AppRoutes.characters.path,
-      hint: 'Мои персонажи'
     }
+    // {
+    //   title: 'Глосарий',
+    //   path: AppRoutes.glossary.path,
+    //   hint: 'Глосарий'
+    // },
+    // {
+    //   title: 'Мои персонажи',
+    //   path: AppRoutes.characters.path,
+    //   hint: 'Мои персонажи'
+    // }
   ]
 
   return (
     <>
-      <ul className="hidden sm:flex gap-2 items-center">
+      <ul className="hidden sm:flex gap-4 items-center">
         {menu.map((item) => (
-          <MenuItem key={item.path} item={item} />
+          <MenuItem
+            className="py-2 text-text hover:text-text-hover"
+            key={item.path}
+            item={item}
+          />
         ))}
       </ul>
 

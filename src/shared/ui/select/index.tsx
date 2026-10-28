@@ -13,7 +13,7 @@ export interface SelectProps {
 }
 
 export const Select = ({ options, onChange, value, multy }: SelectProps) => {
-  const anchorElRef = useRef<HTMLElement>(null)
+  const anchorElRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedItems, setSelectedItems] = useState<string[]>([])
 
