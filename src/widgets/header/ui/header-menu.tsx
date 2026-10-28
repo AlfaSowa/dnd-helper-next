@@ -40,7 +40,7 @@ export const HeaderMenu = ({ open, setOpen }: HeaderMenuProps) => {
       <ul className="hidden sm:flex gap-4 items-center">
         {menu.map((item) => (
           <MenuItem
-            className="py-2 text-text hover:text-text-hover"
+            className="py-2 hover:text-text-hover"
             key={item.path}
             item={item}
           />

@@ -28,14 +28,14 @@
 }
 
 @theme {
-  --color-bg: #ca9c68;
-  --color-main: #906d4b;
-  --color-primary: #13191f;
-  --color-secondary: #594c3d;
-  --color-odd: #2b2f2e;
+  --color-bg: #8c8573;
+  --color-main: #534f49;
+  --color-primary: #131212;
+  --color-secondary: #2f2f2f;
+  --color-odd: #653725;
 
-  --color-text: #ca9c68;
-  --color-text-hover: #906d4b;
+  --color-text: #af451e;
+  --color-text-hover: #af451e;
 
   --md-editor-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

@@ -9,7 +9,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="h-10 flex items-center gap-8 px-2 bg-primary sticky top-0 sm:h-auto">
+    <header className="h-10 flex items-center gap-8 px-2 bg-main sticky top-0 sm:h-auto">
       <Link onClick={() => setOpen(false)} href={AppRoutes.root.path}>
         DND-HELPER
       </Link>
