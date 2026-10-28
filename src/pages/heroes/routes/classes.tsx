@@ -1,7 +1,7 @@
 'use client'
 
 import { useGetClassesQuery } from '@/containers/classes'
-import { Section } from '@/shared/ui'
+import { BaseFilters, Section } from '@/shared/ui'
 import { useMemo, useState } from 'react'
 import Markdown from 'react-markdown'
 
@@ -30,24 +30,7 @@ export const HeroesClassesPage = () => {
   return (
     <Section>
       <div className="flex flex-col gap-2">
-        <div className="flex gap-2">
-          <button
-            className="rounded p-1 bg-amber-600 cursor-pointer"
-            onClick={() => handleReset()}
-          >
-            Все
-          </button>
-
-          {data?.map((i) => (
-            <button
-              className="rounded p-1 bg-amber-600 cursor-pointer"
-              onClick={() => handleClick(i.uuid)}
-              key={i.uuid}
-            >
-              {i.name}
-            </button>
-          ))}
-        </div>
+        <BaseFilters onClick={handleClick} reset={handleReset} data={data} />
 
         <div className="flex flex-col gap-4">
           {filteredClasses.map((i) => (
